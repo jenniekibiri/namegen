@@ -8,10 +8,10 @@ const origin = document.getElementById('country').value;
 const genre = document.getElementById('genre').value;
 const amount = document.getElementById('quantity').value;
 //the url 
-let url ='http://uinames.com/api/?';
+let url ='https://random-data-api.com/api/users/random_user?';
 //read and append to the url
 if(origin!==''){
-    url+=`region=${origin}&`;
+    url+=`country=${origin}&`;
 }
      // Read the genre and append to the url
      if (genre !== '') {
@@ -19,7 +19,7 @@ if(origin!==''){
      }
      // Read the amount and append to the url
      if (amount !== '') {
-         url += `amount=${amount}&`;
+         url += `size=${amount}&`;
      }
 fetch (url)
 .then(function (response) {
@@ -29,14 +29,17 @@ fetch (url)
 let html ='<h2> Generated names</h2>'
 html+= '<ul class ="list">';
 names.forEach(function (name) {
+
     html +=`
     <li>
 
-    ${name.name}
+    ${name.first_name}
     </li>
   `
 
 })
+
+
 
 document.querySelector('#result').innerHTML = html;
 
